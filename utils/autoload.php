@@ -4,7 +4,9 @@ spl_autoload_register(function($class) {
 
     $sources = array(
         "DAO/$class.php", 
-        "models/$class.php" 
+        "models/$class.php",
+        "core/$class.php",        
+        "controllers/$class.php" 
     );
 
     foreach ($sources as $source) {

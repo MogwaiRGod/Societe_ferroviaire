@@ -11,6 +11,7 @@ graph TD;
     0-->E[views];
     0-->F[utils];
     0-->G[DAO];
+    0-->N[core];
 
     F-->H(router.php);
     F-->I(init.php);

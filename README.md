@@ -13,6 +13,8 @@ graph TD;
     0-->G[DAO];
     0-->N[core];
 
+    C-->S(Home.php)
+    
     E-->O(home_tpl.php)
 
     F-->H(router.php);

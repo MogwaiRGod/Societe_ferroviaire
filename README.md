@@ -13,13 +13,19 @@ graph TD;
     0-->G[DAO];
     0-->N[core];
 
+    E-->O(home_tpl.php)
+
     F-->H(router.php);
     F-->I(init.php);
     F-->J(autoload.php);
+    F-->Q(constants.php);
+    F-->R(error_handler.php);
   
     G-->K[database];
       K-->L(db_info.php);
       K-->M(db_connect.php);
+
+    N-->P(Controller.php)
 ```
 
 ## Contenu détaillé
@@ -27,3 +33,4 @@ graph TD;
 | Dossier | Fichier | Contenu |
 |:--:|:--:|:--|
 | /utils | init.php | Contient les imports de tous les fichiers /utils nécessaires au lancement/bon fonctionnement de l'app |
+| /utils | constants.php | Contient les chemins web et locaux vers le projet (sous forme de constantes) |

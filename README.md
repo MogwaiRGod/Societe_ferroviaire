@@ -5,45 +5,20 @@ graph TD;
   0['/'];
     0-->A(index.php);
     0-->B(.htaccess);
-```
+    
+    0-->C[controllers];
+    0-->D[models];
+    0-->E[views];
+    0-->F[utils];
+    0-->G[DAO];
 
-```mermaid
-  graph TD;
-  0['/'];
-    0-->A[controllers];
-```
-
-```mermaid
-  graph TD;
-    0['/'];
-    0-->B[models];
-```
-
-
-```mermaid
-  graph TD;
-    0['/'];
-    0-->C[views];
-```
-
-```mermaid
-  graph TD;
-    0['/'];
-    0-->D[utils];
+    F-->H(router.php);
+    F-->I(init.php);
+    F-->J(autoload.php);
   
-    D-->I(router.php);
-    D-->J(init.php);
-    D-->K(autoload.php);
-```
-
-```mermaid
-graph TD;
-    0['/'];
-    0-->E[DAO];
- 
-    E-->F[database];
-      F-->G(db_info.php);
-      F-->H(db_connect.php);
+    G-->K[database];
+      K-->L(db_info.php);
+      K-->M(db_connect.php);
 ```
 
 ## Contenu détaillé

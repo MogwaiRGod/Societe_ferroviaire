@@ -15,6 +15,12 @@ class Marchandise {
         $this->client = $cl;
     }
 
+    /* METHODES MAGIQUES */
+
+    public function __toString() {
+        return $this->getNbUnites . " " . $this->natureMarchandise->getUniteMesure() . " de " . $this->natureMarchandise->getNomNature() ; 
+    }
+
     /* GET */
 
     public function getNbUnites() : int {

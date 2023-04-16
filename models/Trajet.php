@@ -30,4 +30,9 @@ class Trajet {
         $this->jours = $jrs;
     }
 
+    /* GET */
+
+    public function getTrain() : Train {
+        return $this->train;
+    }
 }

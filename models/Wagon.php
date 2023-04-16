@@ -14,7 +14,6 @@ class Wagon {
         int $cap = 0 /* wagon vide par défaut */
     ) {
         $this->nature = $nt;
-        $this->capacite = $cpct;
         $this->position = $pos;
         if (isset($cap)) {
             $this->capacite = $cap;
@@ -46,5 +45,15 @@ class Wagon {
 
     public function afficherChargement() {
         return;
+    }
+
+    // fonction indiquant si le wagon a les spécifités requises pour la marchandise
+    public function checkWagon($natureMarch, $quantiteMarch) : bool {
+        if ($this->nature == $natureMarch && $this->capacite <= $quantiteMarch) {
+            return TRUE;
+        }
+        else {
+            return FALSE;
+        }
     }
 }

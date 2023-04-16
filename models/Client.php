@@ -47,15 +47,14 @@ class Client {
         Gare $gareArr,
         /* date à partir de laquelle le client désire faire acheminer sa marchandise  */
         String $date
-    ) : void {
-        // envoi des données dans $_SESSION
-        $_SESSION['commande'] = [
+    ) {
+        // on retourne le tableau de la commande
+        return $cmd['commande'] = [
             'client' => $this,
             'marchandise' => $marchandise,
             'gareDep' => $gareDep,
             'gareArr' => $gareArr,
-            'dateCmd' => $date
+            'dateFret' => $date
         ];
-        return;
     }
 }

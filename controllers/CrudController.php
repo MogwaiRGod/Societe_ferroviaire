@@ -19,6 +19,10 @@ class CrudController {
 
             // on instancie les attributs avec les valeurs correspondantes contenues dans POST
             foreach($tabAttributes as $key => $tab) {
+                // e.g $key = civilite
+                // => $$key = $civilite
+                // et $_POST[$key] <=> $_POST[$civilite]
+                // => e.g $key -> "M."
                 $$key = $_POST[$key];
             }
 

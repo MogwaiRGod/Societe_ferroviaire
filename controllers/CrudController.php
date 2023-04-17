@@ -26,7 +26,7 @@ class CrudController {
                 $$key = $_POST[$key];
             }
 
-            // on créé un objet (modèle) avec les paires clefs/attributs récupérés
+            // on créé un objet (modèle) avec les paires clefs/attributs récupérées
             $data = new $model(
                 $civilite,
                 $nom,

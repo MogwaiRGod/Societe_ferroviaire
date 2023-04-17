@@ -14,64 +14,65 @@
 <body>
     <div id="container">
         <pre>
+            <button id="btn">Créer client</button>
 <?php
-/**
- * Script de test
- */
+// /**
+//  * Script de test
+//  */
 
-// la société de transport ferroviaire (lol)
-$UPS = new Societe("UPS", "Nando Cesarone", "ups@transport.com");
+// // la société de transport ferroviaire (lol)
+// $UPS = new Societe("UPS", "Nando Cesarone", "ups@transport.com");
 
-// 1/ le client veut transporter une marchandise d'une gare à une autre 
-// (10 voitures de paris à toulouse, 10 voitures de paris a limoges) 
+// // 1/ le client veut transporter une marchandise d'une gare à une autre 
+// // (10 voitures de paris à toulouse, 10 voitures de paris a limoges) 
 
-// le client
-$toyota = new Client(
-    "M.", 
-    "Akio Toyoda", 
-    "+3312345678", 
-    "toyota@toyota.jp", 
-    "Toyota, Aichi
-    Japon"
-);
+// // le client
+// $toyota = new Client(
+//     "M.", 
+//     "Akio Toyoda", 
+//     "+3312345678", 
+//     "toyota@toyota.jp", 
+//     "Toyota, Aichi
+//     Japon"
+// );
 
-$_POST = [
-    'civilite' => 'M',
-    'nom' =>  "Akio Toyoda", 
-    'tel' => "+3312345678",
-    'email' => "toyota@toyota.jp",
-    'adresse' => "Toyota, Aichi
-    Japon" 
-];
+// $_POST = [
+//     'civilite' => 'M',
+//     'nom' =>  "Akio Toyoda", 
+//     'tel' => "+3312345678",
+//     'email' => "toyota@toyota.jp",
+//     'adresse' => "Toyota, Aichi
+//     Japon" 
+// ];
 
-var_dump($_POST);
+// var_dump($_POST);
 
-// var_dump($toyota->getAttributes());
-$test = new ClientDAO;
-$test->create(new Client("r", "r", "r", "r", "r"));
+// // var_dump($toyota->getAttributes());
+// $test = new ClientDAO;
+// $test->create(new Client("r", "r", "r", "r", "r"));
 
-// les marchandises
-$voiture = new NatureMarchandise("voitures", "vtr" /* unité de mesure des voitures */);
-$march1 = new Marchandise(
-    $voiture,
-    10,
-    $toyota
-);
-$march2 = $march1;
+// // les marchandises
+// $voiture = new NatureMarchandise("voitures", "vtr" /* unité de mesure des voitures */);
+// $march1 = new Marchandise(
+//     $voiture,
+//     10,
+//     $toyota
+// );
+// $march2 = $march1;
 
-// le client passe ses commandes
-$cmd1 = $toyota->passerCommande(
-    $march1,
-    new Gare("Paris"),
-    new gare ("Toulouse"),
-    "2023-04-07"
-);
-$cmd2 = $toyota->passerCommande(
-    $march2,
-    new Gare("Paris"),
-    new gare ("Limoges"),
-    "2023-04-07"
-);
+// // le client passe ses commandes
+// $cmd1 = $toyota->passerCommande(
+//     $march1,
+//     new Gare("Paris"),
+//     new gare ("Toulouse"),
+//     "2023-04-07"
+// );
+// $cmd2 = $toyota->passerCommande(
+//     $march2,
+//     new Gare("Paris"),
+//     new gare ("Limoges"),
+//     "2023-04-07"
+// );
 
 // 2/ la société vérifie qu'elle PEUT transporter les marchandises :
 //     - villes/gares desservies 
@@ -131,5 +132,10 @@ $cmd2 = $toyota->passerCommande(
 ?>
         </pre>
     </div>
+    <script>
+        btn.addEventListener("click", () => {
+            location.href = "CrudController/ajout/Client";
+        });
+    </script>
 </body>
 </html>

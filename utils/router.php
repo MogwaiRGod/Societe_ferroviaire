@@ -1,77 +1,30 @@
 <?php
 
-// récupération des composants de l'URL
-$params = explode(
-    '/',
-    /* On a défini dans le .htaccess que, dans l'URL, les paramètres seraient nommés p ;
-    on récupère donc dans $_GET (car c'est avec la méthode GET que les paramètres apparaissent dans l'URL)
-    la VALEUR des paramètres avec 'p'*/
-    $_GET['p']
-);
+$params = explode('/', $_GET['p']);
 
-/**
- * param[0] : controller
- * param[1] : méthode
- * param[2]++ : arguments
- */ 
-
-// on évalue les paramètres extraits de l'URL pour définir la route demandée
-// s'il y a un paramètre dans l'URL -> on définit le controller correspondant
 if ($params[0]) {
     $controller = $params[0];
-
-} 
-else {
-    // pas de paramètre => page d'accueil
-    $controller = 'Home';
+} else {
+    $controller = 'Home'; 
 }
-
-// s'il y a un deuxième paramètre -> définit la méthode du controller
-if (isset($params[1])) {
+if (@$params[1]) {
     $method = $params[1];
-} 
-// sinon : index par défaut
-else {
-    $method = 'index';
+} else {
+    $method = 'index'; 
+}
+if (@$params[2]) {
+    $req = $params[2];
+} else {
+    $req = '';
 }
 
-// dernier paramètre : arguments de la méthode appelée
-if (isset($params[2])) {
-    $args = $params[2];
-} 
-// pas d'arguments par défaut
-else {
-    $args = '';
-}
-
-// var_dump($_GET);
-
-// $called est le chemin du controller à appeler
 $called = 'controllers/' . $controller . '.php';
+require($called);
 
-// si le controller n'existe pas
-if (!file_exists($called)) {
-    echo "<p>Erreur 404 : page non-existante<br></p>";
-}
-else {
-    // on importe le controller correspondant
-    require ($called);
+if (method_exists($controller, $method)) {
+    $myctrl = new $controller();
+    $myctrl->$method($req);
 
-    // si une méthode a été entrée dans l'URL => 
-    // vérification qu'elle existe
-    if (method_exists(/* classe */ $controller,/* méthode à vérifier */ $method)){
-        // instanciation du controller appelé dans l'URL
-        $newController = new $controller();
-        // invocation de sa méthode appelée dans l'URL
-        if (isset($args)) {
-            // si des arguments on été entrés dans l'URL
-            $newController->$method($args);
-        }
-        else {
-            $newController->$method();
-        }
-    }
-    else {
-        echo 'Erreur 404 : méthode non-existante';
-    }
+} else {
+    echo "methode non existante...erreur 404.";
 }

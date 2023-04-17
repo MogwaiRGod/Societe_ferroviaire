@@ -35,9 +35,20 @@ $toyota = new Client(
     Japon"
 );
 
+$_POST = [
+    'civilite' => 'M',
+    'nom' =>  "Akio Toyoda", 
+    'tel' => "+3312345678",
+    'email' => "toyota@toyota.jp",
+    'adresse' => "Toyota, Aichi
+    Japon" 
+];
+
+var_dump($_POST);
+
 // var_dump($toyota->getAttributes());
 $test = new ClientDAO;
-$test->create(new Client);
+$test->create(new Client("r", "r", "r", "r", "r"));
 
 // les marchandises
 $voiture = new NatureMarchandise("voitures", "vtr" /* unité de mesure des voitures */);

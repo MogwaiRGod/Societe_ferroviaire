@@ -42,6 +42,28 @@ class Client {
         return $this->email;
     }
 
+    /* SET */
+
+    public function setcivilite($civ) : void {
+        $this->civilite = $civ;
+    }
+
+    public function setnom($nom) : void {
+        $this->nom = $nom;
+    }
+
+    public function settel($tel) : void {
+        $this->tel = $tel;
+    }
+
+    public function setadresse($adr) : void {
+        $this->adresse = $adr;
+    }
+
+    public function setemail($mel) : void {
+        $this->email = $mel;
+    }
+
     /* LOGIQUE METIER */
 
     // fonction envoyant les données de la commande du client dans $_SESSION sous forme de tableau associatif

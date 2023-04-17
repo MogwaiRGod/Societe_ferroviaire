@@ -35,6 +35,10 @@ $toyota = new Client(
     Japon"
 );
 
+// var_dump($toyota->getAttributes());
+$test = new ClientDAO;
+$test->create(new Client);
+
 // les marchandises
 $voiture = new NatureMarchandise("voitures", "vtr" /* unité de mesure des voitures */);
 $march1 = new Marchandise(
@@ -64,55 +68,55 @@ $cmd2 = $toyota->passerCommande(
 //     - dates / trajets (à partir de quel nombre de wagon on fait demarrer le train )
 //     - on valide et facture le client (abstraitement !)
 
-$UPS->validerCommande(
-    $cmd, 
-    new Trajet(
-        54567875,
-        new Train(
-            "HTTU 86890866",
-            [
-                new Ligne(
-                    new Gare("Dubai"),
-                    new Gare('Ankara'),
-                    new Gare("Münich"),
-                    new Gare ("Agde"),
-                    new Gare ("Montpellier")
-                )
-            ],
-            "04-30-2023",
-            [
-                new Wagon(
-                    $essence,
-                    300, 
-                    3,
-                ),
-                new Wagon(
-                    $essence,
-                    300, 
-                    2,
-                ),
-                new Wagon(
-                    $essence,
-                    300, 
-                    1,
-                    200
-                ),
-                new Wagon(
-                    $essence,
-                    300, 
-                    0,
-                    300
-                )
-            ]
-        ),
-        "04-30-2023",
-        "05-03-2023",
-        new Gare ("Montpellier"),
-        "06:09",
-        "22:54",
-        [0,1,0,1,1,0,0]
-    )
-);
+// $UPS->validerCommande(
+//     $cmd, 
+//     new Trajet(
+//         54567875,
+//         new Train(
+//             "HTTU 86890866",
+//             [
+//                 new Ligne(
+//                     new Gare("Dubai"),
+//                     new Gare('Ankara'),
+//                     new Gare("Münich"),
+//                     new Gare ("Agde"),
+//                     new Gare ("Montpellier")
+//                 )
+//             ],
+//             "04-30-2023",
+//             [
+//                 new Wagon(
+//                     $essence,
+//                     300, 
+//                     3,
+//                 ),
+//                 new Wagon(
+//                     $essence,
+//                     300, 
+//                     2,
+//                 ),
+//                 new Wagon(
+//                     $essence,
+//                     300, 
+//                     1,
+//                     200
+//                 ),
+//                 new Wagon(
+//                     $essence,
+//                     300, 
+//                     0,
+//                     300
+//                 )
+//             ]
+//         ),
+//         "04-30-2023",
+//         "05-03-2023",
+//         new Gare ("Montpellier"),
+//         "06:09",
+//         "22:54",
+//         [0,1,0,1,1,0,0]
+//     )
+// );
 ?>
         </pre>
     </div>

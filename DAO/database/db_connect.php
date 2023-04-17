@@ -4,7 +4,7 @@
 // (Objet PDO) de cette connexion OU faux si elle a échoué
 function connectToDB() {
     // import des infos BDD
-    include_once("/DAO/database/db_info.php");
+    include_once("db_info.php");
 
     /* nom de l'hôte de la BDD */
     $host = "db";

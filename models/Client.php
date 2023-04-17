@@ -7,7 +7,7 @@ class Client {
     private $adresse;
     private $email;
 
-    public function __construct(String $civ, String $nm, String $numTel, String $eml, String $adr) {
+    public function __construct(String $civ ="", String $nm ="", String $numTel ="", String $eml ="", String $adr ="") {
         $this->civilite = $civ;
         $this->nom = $nm;
         $this->tel = $numTel;
@@ -16,6 +16,11 @@ class Client {
     }
 
     /* GET */
+
+    // retourne tous les attributs et leurs valeurs sous forme de tableau associatif
+    public function getAttributes() {
+        return get_object_vars($this);
+    }
 
     public function getCivilite() : string {
         return $this->civilite;
@@ -56,5 +61,9 @@ class Client {
             'gareArr' => $gareArr,
             'dateFret' => $date
         ];
+    }
+
+    public function returnTable() {
+        return get_class($this);
     }
 }
